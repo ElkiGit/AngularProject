@@ -1,0 +1,7 @@
+
+.router-outlet {
+  width: 50%; /* Set the width to 50% of the page */
+  margin-left: 25%; /* Center the element horizontally */
+  margin-right: 25%;
+  margin-top: 10%;
+}

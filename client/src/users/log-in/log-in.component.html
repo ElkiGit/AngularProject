@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" class="mat-typography">
+  <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" id="name">
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" id="password">
+  </mat-form-field>
+  
+  <div *ngIf="passwordWrong" class="error-message">
+      <p>The password is incorrect!</p>
+  </div>
+  
+  <mat-form-field class="example-full-width" *ngIf="isLecturer">
+      <mat-label>Course</mat-label>
+      <input matInput formControlName="cours" id="cours">
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" (click)="logInfunc()">Login</button>
+  <button mat-raised-button color="accent" *ngIf="!isLecturer" (click)="enterLecturer()">Enter as Lecturer</button>
+</form>
