@@ -1,28 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { userModule } from '../users/user.module';
-import { userService } from '../users/user.service&model/user.service';
-import { coursModule } from '../courses/cours.module';
-import { Course } from '../courses/cours.models/cours.model';
-import { AppRoutingModule, routes } from './app.routes';
-import {  DoCheck } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { RouterOutlet } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { UserLoginService } from './services/userLogin.service';
+import { HttpClient } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet,userModule,coursModule,AppRoutingModule],
+  imports: [CommonModule, RouterOutlet, LoginComponent,RegisterComponent, NavBarComponent, FooterComponent],
+  providers:[HttpClient,UserLoginService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
-  //bootstrap: [AppComponent],
 })
-export class AppComponent implements DoCheck {
-  lec:boolean;
-  ngDoCheck() {
-   
-    this.lec = sessionStorage.getItem('Lecturer') ? true : false;
-
-  }
-  
+export class AppComponent {
+  title = 'CourseProject';
 }

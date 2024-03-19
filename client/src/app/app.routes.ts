@@ -1,33 +1,20 @@
-import { ActivatedRouteSnapshot, CanActivateFn, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
-import { LogInComponent } from '../users/log-in/log-in.component';
-import { RegisterComponent } from '../users/register/register.component';
-import { AllCoursesComponent } from '../courses/all-courses/all-courses.component';
-import { NgModel } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { AddCourseComponent } from '../courses/add-cours/add-cours.component';
-import { LoguotComponent } from '../users/loguot/loguot.component';
-
+import { Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AllCoursesComponent } from './all-courses/all-courses.component';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 export const routes: Routes = [
-    {path:"login",component:LogInComponent},
-   {path:"logout",component:LoguotComponent},
-   {path:"courses",component:AllCoursesComponent},
-   {path:"register",component:RegisterComponent},
-   {path:"register/:name",component:RegisterComponent},
-   
-   {path:"addcurse",component:AddCourseComponent},
-  {path:"",component:AllCoursesComponent}
- // {path:"**",component}
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register/:name', component: RegisterComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'allCourses', component: AllCoursesComponent },
+    { path: 'addCourse', component: AddCourseComponent },
+    { path: 'courseDetails/:id', component: CourseDetailsComponent },
+    { path: '**', component: NotFoundComponent }
 ];
-
-@NgModule({
-    imports:[RouterModule.forChild(routes)],
-    exports:[RouterModule]
-})
-export class AppRoutingModule{
-};
-// , canActivate:[ngDoCheck()]
-// function ngDoCheck(): boolean {
-//     this.lec = localStorage.getItem('Lecturer') ? true : false;
-//     return this.lec;
-// }

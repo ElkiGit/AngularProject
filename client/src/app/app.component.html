@@ -1,8 +1,7 @@
-<nav>
-  <button routerLink="/login" routerLinkActive="active"><a >login</a></button>
-  <button routerLink="/logout" routerLinkActive="active"><a >logout</a></button>
-  <button routerLink="/courses" routerLinkActive="active"><a >courses</a></button>
-  <button routerLink="/register" routerLinkActive="active"><a >register</a></button>
-  <button routerLink="/addcurse" routerLinkActive="active" *ngIf="lec"><a >addcourse</a></button>
-</nav>
-<router-outlet class="router-outlet"></router-outlet>
+<div class="body">
+<app-nav-bar></app-nav-bar>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+<app-footer class="footer"></app-footer>
+</div>
